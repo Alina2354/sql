@@ -112,3 +112,38 @@ FROM students s
 JOIN enrollments e ON s.id = e.student_id
 JOIN courses c ON e.course_id = c.id
 GROUP BY s.student_name;
+
+
+SELECT a.author_name, b.title
+FROM authors a
+INNER JOIN books b ON a.id = b.author_id; 
+
+SELECT a.author_name
+FROM authors a
+LEFT JOIN books b ON a.id = b.author_id
+WHERE b.author_id IS NULL; 
+
+SELECT b.title
+FROM books b
+WHERE b.author_id = 1;
+
+SELECT s.student_name, c.course_name
+FROM students s
+INNER JOIN enrollments e ON s.id = e.student_id
+INNER JOIN courses c ON e.course_id = c.id; 
+
+SELECT s.student_name
+FROM students s
+LEFT JOIN enrollments e ON s.id = e.student_id
+WHERE e.student_id IS NULL;
+
+SELECT c.course_name
+FROM courses c
+LEFT JOIN enrollments e ON c.id = e.course_id
+WHERE e.course_id IS NULL; 
+
+
+
+
+
+
